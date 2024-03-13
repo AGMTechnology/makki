@@ -1,0 +1,69 @@
+.wrapper {
+  min-height: 400px;
+  background-image: linear-gradient(
+    -20deg,
+    var(--mantine-color-dark-4) 0%,
+    #e0dfdd  100%
+  );
+  border-radius: var(--mantine-radius-md);
+  padding: calc(var(--mantine-spacing-xl) * 2.5);
+  min-width: 1113px;
+  @media (max-width:  48em) {
+    padding: calc(var(--mantine-spacing-xl) * 1.5);
+    width: 90%;
+    min-width: 90%;
+  }
+}
+
+.title {
+  font-family:
+    Greycliff CF,
+    var(--mantine-font-family);
+  color: var(--mantine-color-white);
+  line-height: 1;
+}
+
+.description {
+  color: var(--mantine-color-blue-0);
+  max-width: 600px;
+
+  @media (max-width:  48em) {
+    max-width: 100%;
+  }
+}
+
+.form {
+  background-color: var(--mantine-color-white);
+  padding: var(--mantine-spacing-xl);
+  border-radius: var(--mantine-radius-md);
+  box-shadow: var(--mantine-shadow-lg);
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+}
+
+.social {
+  color: var(--mantine-color-white);
+
+  @mixin hover {
+    color: var(--mantine-color-blue-1);
+  }
+}
+
+.input {
+  background-color: var(--mantine-color-white);
+  border-color: var(--mantine-color-gray-4);
+  color: var(--mantine-color-black);
+
+  &::placeholder {
+    color: var(--mantine-color-gray-5);
+  }
+}
+
+.inputLabel {
+  color: var(--mantine-color-black);
+}
+
+.control {
+  background-color: var(--mantine-color-dark-6);
+}
