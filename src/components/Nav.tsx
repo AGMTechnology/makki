@@ -32,6 +32,7 @@ import {
   IconChevronDown,
 } from '@tabler/icons-react';
 import classes from './HeaderMegaMenu.module.css';
+import { NavbarMinimal } from "./NavBarMinimal";
 
 const mockdata = [
   {
@@ -85,136 +86,21 @@ export function Nav() {
         <header className={classes.header}>
           <Group justify="space-between" h="100%">
             <img width={200} src={logo} />
-
-            <Group h="100%" gap={0} visibleFrom="md">
-              <a href="#" className={classes.link}>
-                Accueil 
-              </a>
-              <a href="#" className={classes.link}>
-                Services
-              </a>
-              {/* 
-              <HoverCard zIndex={999} width={600} position="bottom" radius="md" shadow="md" withinPortal>
-                <HoverCard.Target>
-                  <a href="#" className={classes.link}>
-                    <Center inline>
-                      <Box component="span" mr={5}>
-                        Services
-                      </Box>
-                      <IconChevronDown
-                        style={{ width: rem(16), height: rem(16) }}
-                        color={theme.colors.orange[6]}
-                      />
-                    </Center>
-                  </a>
-                </HoverCard.Target>
-
-                <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
-                  <Group justify="space-between" px="md">
-                    <Text fw={500}>Features</Text>
-                    <Anchor href="#" fz="xs">
-                      View all
-                    </Anchor>
-                  </Group>
-
-                  <Divider my="sm" />
-
-                  <SimpleGrid cols={2} spacing={0}>
-                    {links}
-                  </SimpleGrid>
-
-                  <div className={classes.dropdownFooter}>
-                    <Group justify="space-between">
-                      <div>
-                        <Text fw={500} fz="sm">
-                          Get started
-                        </Text>
-                        <Text size="xs" c="dimmed">
-                          Their food sources have decreased, and their numbers
-                        </Text>
-                      </div>
-                      <Button variant="default">Get started</Button>
-                    </Group>
-                  </div>
-                </HoverCard.Dropdown>
-              </HoverCard> 
-              */}
-              <a href="#" className={classes.link}>
-                A propos
-              </a>
-              <a href="#" className={classes.link}>
-                Contact
-              </a>
-            </Group>
-
-            <Group style={{width:140, justifyContent:"flex-end"}}  visibleFrom="md">
-              <ActionIcon
-                variant="gradient"
-                size="xl"
-                aria-label="Gradient action icon"
-                gradient={{ from: '#2b2a28', to: '#0c0c0c', deg: 90 }}
-              >
-                <IconUser />
-              </ActionIcon>
-            </Group>
-
-            <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="md" />
+            <Burger opened={drawerOpened} onClick={toggleDrawer} />
           </Group>
         </header>
 
-        <Drawer
+         <Drawer
           opened={drawerOpened}
           onClose={closeDrawer}
-          size="100%"
-          padding="xs"
-          title="Navigation"
-          hiddenFrom="md"
-          zIndex={999}
+          overlayProps={{ backgroundOpacity: 0.5, blur: 1 }}
+          position="right"
+          scrollAreaComponent={ScrollArea.Autosize}
+          withCloseButton={false}
+          size={260}
         >
-          <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
-            <Divider my="sm" />
-
-            <a href="#" className={classes.link}>
-              Home
-            </a>
-            <a href="#" className={classes.link}>
-              Services
-            </a>
-            {/* <UnstyledButton className={classes.link} onClick={toggleLinks}>
-              <Center inline>
-                <Box component="span" mr={5}>
-                  Features
-                </Box>
-                <IconChevronDown
-                  style={{ width: rem(16), height: rem(16) }}
-                  color={theme.colors.orange[6]}
-                />
-              </Center>
-            </UnstyledButton> */}
-            {/* <Collapse in={linksOpened}>{links}</Collapse> */}
-            <a href="#" className={classes.link}>
-              Learn
-            </a>
-            <a href="#" className={classes.link}>
-              Academy
-            </a>
-
-            <Divider my="sm" />
-
-            <div className={classes.wrapperBtn} >
-              <Group className={classes.connectBtn} justify="center" grow pb="xl" px="md">
-                <ActionIcon
-                  variant="gradient"
-                  size="xl"
-                  aria-label="Gradient action icon"
-                  gradient={{ from: 'black', to: '#2b2a28', deg: 90 }}
-                >
-                  <IconUser />
-                </ActionIcon>
-              </Group>
-            </div>
-          </ScrollArea>
-        </Drawer>
+          <NavbarMinimal />
+        </Drawer> 
       </Box>
       <Outlet />
     </>
